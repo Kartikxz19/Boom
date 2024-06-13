@@ -11,7 +11,6 @@ import { useParams } from 'next/navigation';
 const Meeting = () => {
   const { id } = useParams();
   const {call,isCallLoading}=useGetCallByID(id);//get call deets using the id in the custom hook we created
-  console.log(call,isCallLoading)
   const {user,isLoaded}=useUser();//get user details from clerk
   const [isSetupComplete, setisSetupComplete] = useState(false);//if video room setup is complete show the actual meeting room, otherwise show meeting setup
   if(!isLoaded||isCallLoading)
@@ -21,7 +20,6 @@ const Meeting = () => {
       //if user details or call details are not fetched yet, show a loading bar
       return <Loader/>
     }
-    console.log("Call data inside page is: ",call);
   return (
     <main className='h-screen w-full'>
       {/* Stream call is given call details as which call to setup using our custom hook */}

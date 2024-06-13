@@ -6,7 +6,6 @@ import { Button } from './ui/button';
 const MeetingSetup = ({setisSetupComplete}:{setisSetupComplete:(value:boolean)=>void}) => {
     const [isMicCamToggledOn, setisMicCamToggledOn] = useState(false);
     const call=useCall();//because we provided the streamCall wrapper, a call instance
-    console.log(call);
     if (!call) {
         throw new Error(
           'useStreamCall must be used within a StreamCall component.',

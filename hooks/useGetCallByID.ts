@@ -9,9 +9,7 @@ export const useGetCallByID = (id: string | string[]) => {
   const [call, setCall] = useState<Call>();
   const [isCallLoading, setIsCallLoading] = useState(true);
   const client = useStreamVideoClient();
-    console.log("ID is : ",id,"\nClient : ",client);
   useEffect(() => {//everytime user(and thus client) changes, we need to establish a websocket connection using useStreamVideoClient, then fetch the avialble calls and see if the id provided actually refers to a call or not.
-    console.log("Client or ID changed:", client, id);
 
     if (!client || !id) {
       toast({
