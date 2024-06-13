@@ -6,7 +6,6 @@ import { useGetCallByID } from '@/hooks/useGetCallByID'
 import { useUser } from '@clerk/nextjs'
 import { useStreamVideoClient } from '@stream-io/video-react-sdk'
 import { useRouter } from 'next/navigation'
-import { title } from 'process'
 import React, { useState } from 'react'
 
 const Table=({title,description}:{title:string,description:string})=>{
@@ -42,7 +41,7 @@ const Personalroom = () => {
   }
   return (
       <>
-      <div className={`display:"${isLoad?"block":"none"}`}>
+      <div className={`${isLoad?'block':'hidden'}`}>
       <LoaderPopup/>
       </div>
     <section className='flex size-full flex-col gap-10 text-white'>
